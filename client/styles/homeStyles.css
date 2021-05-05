@@ -1,0 +1,10 @@
+.optionContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.HomePage{
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+}
