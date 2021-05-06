@@ -23,7 +23,7 @@ const App = () => {
                     <Route exact path="/add">
                          <Navbar/>
                         <CreatePost/>
-        
+                        <Feed/>
                     </Route>
                     <Route exact path ="/">hello world
                          <Navbar/>
@@ -34,4 +34,4 @@ const App = () => {
     );
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App/>,  document.getElementById('root'));

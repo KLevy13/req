@@ -1,14 +1,9 @@
 const express = require( 'express');
-import Post from  '../models/postModel.js'
+const Post = require('../models/postModel')
 
 const router = express.Router();
 
-// router.route('/').get((req, res) => {
-  
-//     Post.find()
-//         .then(posts => res.json({ posts: posts}))
-//         .catch(err => res.status(400).json(err));
-// });
+
 
 router.route('/add').post((req, res) => {
     const {title, creator, writeUp, medium, file} = req.body;
@@ -40,8 +35,13 @@ router.route('/edit/:id').post((req, res) => {
         .catch(err => res.status(400).json(err));
 });
 
+router.route('/').get((req, res) => {
+  
+    Post.find()
+
+        .then(posts => res.json({ posts: posts}))
+        .catch(err => res.status(400).json(err));
+});
 
 
-
-
-export default router;
+module.exports = router

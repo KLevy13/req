@@ -79,10 +79,10 @@ const Feed = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/posts/')
+        axios.get('http://localhost:3000/posts')
             .then(res => {
                 setPosts(res.data.posts.reverse());
-                setUsername(res.data.username);
+               
             })
             .catch(err => console.log(err));
     }, []);
@@ -106,7 +106,7 @@ const Feed = () => {
                 post.title = editedPost.title;
                 post.creator = editedPost.creator;
                 post.writeUp = editedPost.writeUp;
-                post.medium = editedPost
+                post.medium = editedPost.medium
             }
             return post;
         }));

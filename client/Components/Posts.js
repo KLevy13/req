@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 //import styles from '../styles/postItem.css';
 import EditPost from './EditPost.js'
 //import Moment from 'react-moment'
@@ -23,7 +23,7 @@ const Post = ({ post, username, afterLike, afterEdit, afterDelete }) => {
     const [isEditing, setEditingState] = useState(false);
 
     const onLike = () => {
-        axios.post('http://localhost:8080/posts/like/' + post._id)
+        axios.post('http://localhost:3000/posts/like/' + post._id)
             .then(res => {
                
                 afterLike(post._id);
@@ -32,7 +32,7 @@ const Post = ({ post, username, afterLike, afterEdit, afterDelete }) => {
     }
 
     const onDelete = () => {
-        axios.delete('http://localhost:8080/posts/delete/' + post._id)
+        axios.delete('http://localhost:3000/posts/delete/' + post._id)
             .then(res => {
            
                 afterDelete(post._id);
@@ -40,6 +40,7 @@ const Post = ({ post, username, afterLike, afterEdit, afterDelete }) => {
             .catch(err => console.log(err));
     }
 
+    post.likes = post.likes || []
     return (
         <div className="section">
             <div className="card z-depth-1 hoverable">
@@ -65,11 +66,14 @@ const Post = ({ post, username, afterLike, afterEdit, afterDelete }) => {
                             <span className="btn-floating btn-small btn-flat white"><big>{post.likes.length}</big></span>
                             {post.likes.includes(username)
                               ? <button className="btn-floating btn-small waves-effect waves-light red lighten-1" onClick={onLike}><i className="material-icons">thumb_up</i></button>
-                              : <button className="btn-floating btn-small waves-effect waves-light" onClick={onLike}><i className="material-icons">thumb_up</i></button>
+                              : <button className="btn-floating btn-small waves-effect waves-light" onClick={onLike}><i className="material-icons">like</i></button>
                             }
                         </span>
                         <div className="grey-text">{'By: ' + post.creator}</div>
-                        <div>{post.description}</div>
+                        <div>{'Medium: ' + post.medium}</div>
+                        <div>
+                            <i>{post.writeUp}</i>
+                        </div>
                     </div>
                   : <EditPost post={post} afterEdit={afterEdit} setEditingState={setEditingState}/>
                 }

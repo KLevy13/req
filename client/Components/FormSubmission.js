@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 //import styles from '../styles/FormStyles.css'
+import {useHistory} from 'react-router-dom';
+
 import axios from 'axios';
 axios.defaults.withCredentials = true
 
@@ -9,6 +11,7 @@ const CreatePost = () => {
   const [writeUp, setWriteUp] = useState('');
   const [medium, setMedium] = useState('');
   const [file, setFile] = useState('');
+  const history = useHistory();
 
     const onChangeTitle = (e) => {
       setTitle(e.target.value);
@@ -58,10 +61,10 @@ const CreatePost = () => {
             file: file
         }
 
-        axios.post('/posts/', post)
+        axios.post('http://localhost:3000/posts/add', post)
         .then(res => {
-            console.log(res.data);
-            window.location = '/posts/';
+            console.log("hello");
+            history.push('/posts');
         })
         .catch(err => console.log(err));
     
@@ -114,7 +117,7 @@ const CreatePost = () => {
                         {file.length > 0 && <img className="responsive-img" src={file} alt="Invalid file upload."/>}
                     </div>
                     <div className="row">
-                        <button type="submit" className="submitbutton" onClick={onSubmit}>Req</button>
+                        <button type="submit" className="submitbutton" >Req</button>
                         <div className="col s12" style={{ paddingBottom: "10px" }}/>
                         <button className="clearButton" onClick={onClear}>Kill Req</button>
                     </div>

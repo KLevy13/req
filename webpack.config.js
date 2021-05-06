@@ -3,7 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: './client/index.js',
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -14,6 +14,8 @@ module.exports = {
     //     publicPath: '/build',
     //     hot: true,
     //     historyApiFallback: true
+    //proxy: {
+        //'/api': 'http://localhost:3000',
     // },
 
     module:{

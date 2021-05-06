@@ -8,6 +8,7 @@ const EditPost = ({ post, afterEdit, setEditingState }) => {
     const [writeUp, setWriteUp] = useState(post.writeUp);
     const [medium, setMedium] = useState(post.medium);
 
+
     const onChangeTitle = (e) => {
         setTitle(e.target.value);
     }
@@ -24,6 +25,7 @@ const EditPost = ({ post, afterEdit, setEditingState }) => {
         setMedium(e.target.value);
     }
 
+
     const onSubmit = (e) => {
         e.preventDefault();
         const updatedPost = {
@@ -31,8 +33,9 @@ const EditPost = ({ post, afterEdit, setEditingState }) => {
             creator: creator,
             writeUp: writeUp,
             medium: medium,
+            file: post.file
         }
-        axios.post('http://localhost:8080/posts/edit/' + post._id, updatedPost)
+        axios.post('http://localhost:3000/posts/edit/' + post._id, updatedPost)
             .then(res => {
                 console.log(res.data);
                 afterEdit(post._id, updatedPost);
