@@ -73,6 +73,7 @@
 import React, { useState, useEffect } from 'react';
 import Post from './Posts.js';
 import axios from 'axios';
+import styles from '../styles/feedStyles.css'
 axios.defaults.withCredentials = true;
 
 const Feed = () => {
@@ -117,14 +118,16 @@ const Feed = () => {
     }
 
     return (
-        <div className="row">
-            <div className="feed">
+        <div > 
+             <p className={styles.author}><i>Kellen's Req's</i></p>
+            <div className={styles.container}>
+           
                 {posts.length === 0
-                  ? <div style={{ paddingTop: "50px" }} className="center-align">
+                  ? <div style={{ paddingTop: "50px" }}>
                         
                     </div>
                   : posts.map(post => {
-                        return <Post post={post} afterLike={afterLike} afterEdit={afterEdit} afterDelete={afterDelete} key={post._id}/>
+                        return <Post post={post} afterLike={afterLike} afterEdit={afterEdit} afterDelete={afterDelete} key={post._id}  />
                     })
                 }
             </div>

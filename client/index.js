@@ -25,7 +25,7 @@ const App = () => {
                         <CreatePost/>
                         <Feed/>
                     </Route>
-                    <Route exact path ="/">hello world
+                    <Route exact path ="/">
                          <Navbar/>
                         
                     </Route>

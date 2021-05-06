@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-//import styles from '../styles/FormStyles.css'
+import styles from '../styles/FormStyles.css'
 import {useHistory} from 'react-router-dom';
 
 import axios from 'axios';
@@ -72,54 +72,55 @@ const CreatePost = () => {
   }
 
   return (
-    <div className="row">
-            <div className="innerRow">
-                <div className="section">
+    <div className={styles.formstyle}>
+            <div className={styles.formstyle}>
+                <div>
                     <h3>Make a Req</h3>
                 </div>
                 <form onSubmit={onSubmit}>
-                    <div className="row">
-                        <div className="input-field">
+                    <div className={styles.formstyle}>
+                        <div className={styles.formstyle}>
+                        <label htmlFor="title">Title</label>
                             <input required id="title" type="text" value={title} onChange={onChangeTitle}/>
-                            <label htmlFor="title">Title</label>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className={styles.formstyle}>
                         <div className="input-field">
+                        <label htmlFor="medium">Medium</label>
                             <input required id="title" type="text" value={medium} onChange={onChangeMedium}/>
-                            <label htmlFor="medium">Medium</label>
+                            
                         </div>
                     </div>
-                    <div className="row">
+                    <div className={styles.formstyle}>
                         <div className="input-field">
+                        <label htmlFor="creator">Creator</label>
                             <input required id="creator" type="text" value={creator} onChange={onChangeCreator}/>
-                            <label htmlFor="creator">Creator</label>
+                            
                         </div>
                     </div>
-                    <div className="row">
+                    <div className={styles.formstyle}>
                         <div className="input-field">
+                        <label htmlFor="writeUp">Thoughts</label>
                             <textarea required id="writeUp" className="writeUpTextArea" value={writeUp} onChange={onChangeWriteUp}/>
-                            <label htmlFor="writeUp">Thoughts</label>
+                            
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="file-field">
-                            <div className="btn-small">
-                                <span>Upload File</span>
-                                <input required type="file" accept="image/*" onChange={onChangeFile}/>
+                    <div className={styles.formstyle}>
+                        <div  >
+                            <div >
+                                <span>Upload Image</span>
+                                <input required type="file"  accept="image/*" onChange={onChangeFile}/>
                             </div>
-                            <div className="file-path-wrapper">
-                                <input className="file-path" placeholder="Upload an image file"/>
-                            </div>
+                            
                         </div>
                     </div>
-                    <div className="row center-align">
-                        {file.length > 0 && <img className="responsive-img" src={file} alt="Invalid file upload."/>}
+                    <div className={styles.formstyle}>
+                        {file.length > 0 && <img src={file} alt="Invalid file upload."/>}
                     </div>
-                    <div className="row">
-                        <button type="submit" className="submitbutton" >Req</button>
-                        <div className="col s12" style={{ paddingBottom: "10px" }}/>
-                        <button className="clearButton" onClick={onClear}>Kill Req</button>
+                    <div >
+                        <button type="submit" className={styles.button} >Req</button>
+                      
+                        <button className={styles.button}  onClick={onClear}>Kill Req</button>
                     </div>
                 </form>
             </div>

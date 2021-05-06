@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-//import styles from '../styles/postItem.css';
+import styles from '../styles/postItem.css';
 import EditPost from './EditPost.js'
-//import Moment from 'react-moment'
+
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
@@ -42,41 +42,43 @@ const Post = ({ post, username, afterLike, afterEdit, afterDelete }) => {
 
     post.likes = post.likes || []
     return (
-        <div className="section">
-            <div className="card z-depth-1 hoverable">
-                <div className="card-action">
-                    
-                  
+        <div >
+            <div >
+                <div>
                 </div>
-                <div className="card-image">
+                
+                <div className={styles.postBox} >
+                <span><big><b>{post.title}</b></big></span>
+                <div className="grey-text">{post.creator}</div>
+                        <div>{post.medium}</div>
                     <img src={post.file} alt="An error occurred."/>
-                </div>
-                {!isEditing
-                  ? <div className="card-content">
-                        <span><big><b>{post.title}</b></big></span>
+                    <div><i>{post.writeUp}</i></div>
+                    {!isEditing
+                  ? <div>
+                      
                         {
-                            <span className="right">
-                                <span style={{ paddingLeft: '5px' }}/>
-                                <button className="btn-floating btn-small waves-effect waves-light" onClick={() => setEditingState(true)}><i className="material-icons">edit</i></button>
-                                <span style={{ paddingLeft: '5px' }}/>
-                                <button className="btn-floating btn-small waves-effect waves-light" onClick={onDelete}><i className="material-icons">delete</i></button>
+                            <span >
+                                <span/>
+                                <button  className={styles.button} onClick={() => setEditingState(true)}>edit</button>
+                                <span />
+                                <button  className={styles.button} onClick={onDelete}>unReq</button>
                             </span>
                         }
-                        <span className="right">
-                            <span className="btn-floating btn-small btn-flat white"><big>{post.likes.length}</big></span>
-                            {post.likes.includes(username)
-                              ? <button className="btn-floating btn-small waves-effect waves-light red lighten-1" onClick={onLike}><i className="material-icons">thumb_up</i></button>
-                              : <button className="btn-floating btn-small waves-effect waves-light" onClick={onLike}><i className="material-icons">like</i></button>
-                            }
-                        </span>
-                        <div className="grey-text">{'By: ' + post.creator}</div>
-                        <div>{'Medium: ' + post.medium}</div>
-                        <div>
-                            <i>{post.writeUp}</i>
-                        </div>
+                        <span>
+                            {/* <span className="btn-floating btn-small btn-flat white"><big>{post.likes.length}</big></span>
+                            {/* {post.likes.includes(username)
+                              ? <button className='' onClick={onLike}><i className="material-icons">thumb_up</i></button>
+                              : <button className=''onClick={onLike}><i className="material-icons">like</i></button>
+                            } */}
+                        </span> 
+                     
+                        
                     </div>
                   : <EditPost post={post} afterEdit={afterEdit} setEditingState={setEditingState}/>
                 }
+                  
+                </div>
+                
             </div>
         </div>
     );

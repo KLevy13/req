@@ -1,19 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import styles from '../styles/navbar.css'
+
 axios.defaults.withCredentials = true;
 
 const Navbar = () => {
 
     return (
-        <nav>
-            <div className="nav-wrapper">
-                <Link to="/posts" className="logo">Req'd</Link>
-                    <ul>
-                    <li><Link to="/add">Create Post</Link></li>
-                    </ul>
+   
+            <div className={styles.navBar}>
+                <div className={styles.title}><Link to="/posts" className={styles.title}>My Req's</Link></div>
+                   
+                   <div className={styles.logo}>
+          
+                       <p><i>Req'd</i></p>
+        
+                   </div>
+                   
+
+                    <div className={styles.li} ><Link to="/add" className={styles.li}>Make a New Req</Link></div>
+                    
             </div>
-        </nav>
+      
     );
 }
 

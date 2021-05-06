@@ -1,4 +1,17 @@
-.test{
-    font-size: large;
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    justify-content: space-evenly ;
+    background-color: #ffffff;
 }
 
+.author{
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+    color: #634dbb;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
