@@ -6,6 +6,8 @@ const dotenv = require('dotenv');
 
 
 const postRoutes = require('./routes/postRoutes.js');
+const userRoutes = require('./routes/userRoutes.js')
+const session = require('express-session');
 const bodyParser = require('body-parser');
 
 dotenv.config();
@@ -20,8 +22,19 @@ app.use(cors({
     methods: ["GET", "POST", "DELETE"],
     credentials: true
 }));
+app.use(session({
+    key: "userId",
+    secret: "shhh",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { expires: 86400000 }
+}));
 
-app.use('/posts', postRoutes)
+app.use('/posts', postRoutes);
+app.use('/users', userRoutes);
+
+
+
 
 mongoose.connect('mongodb+srv://KidRadium:SandManSkatoonBoi@37@cluster0.zvros.mongodb.net/Req?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => app.listen(PORT, () => console.log(`server running on port ${PORT}`)))

@@ -5,17 +5,23 @@ import CreatePost from './Components/FormSubmission.js';
 import axios from 'axios';
 import Feed from './Components/Feed.js';
 import Navbar from './Components/Navbar.js';
+import LandingPage from './Components/LandingPage';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 axios.defaults.withCredentials = true;
 
+
+
 const App = () => {
-
-
+  
+   
     return (
 
             <Router>
                 <Switch>
+                <Route exact path="/landing">
+                        <LandingPage/>
+                    </Route>
                     <Route exact path="/posts">
                         <Navbar/>
                         <Feed/>

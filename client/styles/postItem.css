@@ -9,7 +9,7 @@
 .postBox{
     background-color: #0a2247;
   height: 35em;
-  width: 15em;
+  width: 17em;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@
      
 
     .button:hover{
-    color:black;
+    
      border-color:#DDDDDD;
     }
     .button:active{

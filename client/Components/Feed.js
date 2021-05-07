@@ -78,12 +78,12 @@ axios.defaults.withCredentials = true;
 
 const Feed = () => {
     const [posts, setPosts] = useState([]);
-
+    const [username, setUsername] = useState('')
     useEffect(() => {
         axios.get('http://localhost:3000/posts')
             .then(res => {
                 setPosts(res.data.posts.reverse());
-               
+                setUsername(res.data.username)
             })
             .catch(err => console.log(err));
     }, []);
@@ -119,18 +119,69 @@ const Feed = () => {
 
     return (
         <div > 
+
              <p className={styles.author}><i>Kellen's Req's</i></p>
+             <p className={styles.section}><i>Films</i></p>
             <div className={styles.container}>
            
                 {posts.length === 0
                   ? <div style={{ paddingTop: "50px" }}>
                         
                     </div>
-                  : posts.map(post => {
-                        return <Post post={post} afterLike={afterLike} afterEdit={afterEdit} afterDelete={afterDelete} key={post._id}  />
+                  : posts.filter(el => el.medium === 'Film').map(post => {
+                        return <Post post={post} username={username} afterLike={afterLike} afterEdit={afterEdit} afterDelete={afterDelete} key={post._id}  />
                     })
                 }
-            </div>
+        </div>
+        <p className={styles.section}><i>Songs</i></p>
+              <div className={styles.container}>
+              
+                {posts.length === 0
+                  ? <div style={{ paddingTop: "50px" }}>
+                        
+                    </div>
+                  : posts.filter(el => el.medium === 'Song').map(post => {
+                        return <Post post={post} username={username} afterLike={afterLike} afterEdit={afterEdit} afterDelete={afterDelete} key={post._id}  />
+                    })
+                }
+               </div>
+               <p className={styles.section}><i>Novels</i></p>
+               <div className={styles.container}>
+          
+                {posts.length === 0
+                  ? <div style={{ paddingTop: "50px" }}>
+                        
+                    </div>
+                  : posts.filter(el => el.medium === 'Novel').map(post => {
+                        return <Post post={post} username={username} afterLike={afterLike} afterEdit={afterEdit} afterDelete={afterDelete} key={post._id}  />
+                    })
+                }
+              </div>
+              <p className={styles.section}><i>Episodes</i></p>
+           <div className={styles.container}>
+              
+                {posts.length === 0
+                  ? <div style={{ paddingTop: "50px" }}>
+                        
+                    </div>
+                  : posts.filter(el => el.medium === 'TV Episode').map(post => {
+                        return <Post post={post} username={username} afterLike={afterLike} afterEdit={afterEdit} afterDelete={afterDelete} key={post._id}  />
+                    })
+                }
+               </div>
+               <p className={styles.section}><i>Albums</i></p>
+             <div className={styles.container}>
+             
+                {posts.length === 0
+                  ? <div style={{ paddingTop: "50px" }}>
+                        
+                    </div>
+                  : posts.filter(el => el.medium === 'Album').map(post => {
+                        return <Post post={post} username={username} afterLike={afterLike} afterEdit={afterEdit} afterDelete={afterDelete} key={post._id}  />
+                    })
+                }
+                </div>
+            
         </div>
    
      

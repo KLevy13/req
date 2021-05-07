@@ -1,4 +1,11 @@
 
+.form{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .formstyle{
 	max-width: 450px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -54,7 +61,7 @@
 .formstyle input[type=search],
 .formstyle input[type=time],
 .formstyle input[type=url],
-.formstyle input[type=email],
+.formstyle input[type=password],
 .formstyle select, 
 .formstyle textarea{
 	border-radius: 3px;
@@ -68,7 +75,7 @@
 	-moz-box-shadow: inset 1px 1px 4px #FFD5E7;
 	-webkit-box-shadow: inset 1px 1px 4px #FFD5E7;
 	background: #FFEFF6;
-	width:50%;
+	width:100%;
 }
 .formstyle  input[type=submit],
 .formstyle  input[type=button]{
