@@ -1,14 +1,8 @@
 
-
-
 const express = require('express');
 const router = express.Router();
 const User = require('../models/userModel.js')
 const bcrypt = require('bcrypt')
-
-
-
-
 
 router.route('/register').post((req, res) => {
     let { username, password, password2 } = req.body;

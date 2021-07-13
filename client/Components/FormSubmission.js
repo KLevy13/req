@@ -63,7 +63,7 @@ const CreatePost = () => {
 
         axios.post('http://localhost:3000/posts/add', post)
         .then(res => {
-            console.log("hello");
+            console.log(post.medium, post.creator);
             history.push('/posts');
         })
         .catch(err => console.log(err));
@@ -87,7 +87,7 @@ const CreatePost = () => {
                     <div className={styles.formstyle}>
                         <div className="input-field">
                         <label htmlFor="medium">Medium</label>
-                            <input required id="title" type="text" value={medium} onChange={onChangeMedium}/>
+                            <input required id="medium" type="text" value={medium} onChange={onChangeMedium}/>
                             
                         </div>
                     </div>

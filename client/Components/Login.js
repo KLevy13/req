@@ -38,8 +38,7 @@ const Login = ({ setRegisteringState }) => {
 
     return (
         <div className={styles.form}>
-            <div >
-              
+            <div className={styles.formstyle}>
             </div>
             <form className={styles.formstyle} onSubmit={onSubmit}>
                 <div className="input-field">
@@ -51,12 +50,12 @@ const Login = ({ setRegisteringState }) => {
                     <label htmlFor="password">Password</label>
                 </div>
                 <div className={styles.formstyle}>
-                    <p className="red-text">{errorMessage}</p>
-                    <button type="submit" className="col s6 offset-s3 btn waves-effect waves-light">Login</button>
+                    <p >{errorMessage}</p>
+                    <button type="submit" >Login</button>
                 </div>
                 <div className={styles.formstyle}>
                 <p>Don't have an account?</p>
-                <button className="col s6 offset-s3 btn-small waves-effect waves-light" onClick={() => setRegisteringState(true)}>Register Here</button>
+                <button  onClick={() => setRegisteringState(true)}>Register Here</button>
             </div>
             </form>
             

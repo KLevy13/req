@@ -11,16 +11,10 @@ const Navbar = () => {
    
             <div className={styles.navBar}>
                 <div className={styles.title}><Link to="/posts" className={styles.title}>My Req's</Link></div>
-                   
                    <div className={styles.logo}>
-          
                        <p><i>Req'd</i></p>
-        
                    </div>
-                   
-
-                    <div className={styles.li} ><Link to="/add" className={styles.li}>Make a New Req</Link></div>
-                    
+                    <div className={styles.li} ><Link to="/add" className={styles.li}>New Req</Link></div>
             </div>
       
     );

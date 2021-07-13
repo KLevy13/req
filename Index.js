@@ -40,13 +40,5 @@ mongoose.connect('mongodb+srv://KidRadium:SandManSkatoonBoi@37@cluster0.zvros.mo
 .then(() => app.listen(PORT, () => console.log(`server running on port ${PORT}`)))
 .catch((err) => console.log(err));
 
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://KidRadium:SandManSkatoonBoi@37@cluster0.zvros.mongodb.net/mReq?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
-module.exports = app
+
 

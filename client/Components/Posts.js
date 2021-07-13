@@ -45,6 +45,7 @@ const Post = ({ post, username, afterLike, afterEdit, afterDelete }) => {
         <div >
             <div >
                 <div>
+                    <span>{post.username}</span>
                 </div>
                 
                 <div className={styles.postBox} >
@@ -56,7 +57,7 @@ const Post = ({ post, username, afterLike, afterEdit, afterDelete }) => {
                     {!isEditing
                   ? <div>
                       
-                        {
+                        {username === post.username &&
                             <span >
                                 <span/>
                                 <button  className={styles.button} onClick={() => setEditingState(true)}>edit</button>
